@@ -1,23 +1,49 @@
-enum statusCode {
-  SUCCESS = 's',
-  IN_PROCES = 'p',
-  FAILED = 'f',
+class User {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
-const res = {
-  message: "Платеж успешеню",
-  statusCode: statusCode.SUCCESS,
-};
+class Users extends Array<User> {
+  searchByName(name: string) {
+    return this.filter((u) => u.name === name);
+  }
 
-if (res.statusCode === statusCode.SUCCESS) {
+  override toString(): string {
+    return this.map((u) => u.name).join(", ");
+  }
+}
+
+const users = new Users();
+users.push(new User("Вася"));
+users.push(new User("Egor"));
+console.log(users.toString());
+
+class UserList {
+  users: User[];
+
+  push(u: User) {
+    this.users.push(u);
+  }
+}
+
+class Payment {
+  date: Date;
+}
+
+class UserwithPayment extends Payment {
+  name: string;
 }
 
 
-function action(status: statusCode) {
+class UserwithPayment2 {
+  user: User;
+  payment: Payment;
 
-}
-
-
-const enum Roles{
-  ADMIN = 2
+  constructor(user: User, payment: Payment) {
+      this.payment = payment;
+      this.user = user
+  }
 }

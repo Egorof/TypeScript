@@ -1,15 +1,28 @@
 "use strict";
-var statusCode;
-(function (statusCode) {
-    statusCode["SUCCESS"] = "s";
-    statusCode["IN_PROCES"] = "p";
-    statusCode["FAILED"] = "f";
-})(statusCode || (statusCode = {}));
-const res = {
-    message: "Платеж успешеню",
-    statusCode: statusCode.SUCCESS,
-};
-if (res.statusCode === statusCode.SUCCESS) {
+class User {
+    constructor(name) {
+        this.name = name;
+    }
 }
-function action(status) {
+class Users extends Array {
+    searchByName(name) {
+        return this.filter((u) => u.name === name);
+    }
+    toString() {
+        return this.map((u) => u.name).join(", ");
+    }
 }
+const users = new Users();
+users.push(new User("Вася"));
+users.push(new User("Egor"));
+console.log(users.toString());
+class UserList {
+    push(u) {
+        this.users.push(u);
+    }
+}
+let test = new UserList();
+test.push(new User("Egor"));
+test.push(new User("Egor1"));
+test.push(new User("Egorka"));
+console.log(test);
