@@ -1,49 +1,26 @@
-class User {
+class UserBuildder {
   name: string;
 
-  constructor(name: string) {
+  setName(name: string): this {
     this.name = name;
+    return this;
+  }
+
+  isAdmin(): this is AdminBuilder {
+    return this instanceof AdminBuilder;
   }
 }
 
-class Users extends Array<User> {
-  searchByName(name: string) {
-    return this.filter((u) => u.name === name);
-  }
-
-  override toString(): string {
-    return this.map((u) => u.name).join(", ");
-  }
+let u = new UserBuildder();
+class AdminBuilder extends UserBuildder {
+  
 }
 
-const users = new Users();
-users.push(new User("Вася"));
-users.push(new User("Egor"));
-console.log(users.toString());
-
-class UserList {
-  users: User[];
-
-  push(u: User) {
-    this.users.push(u);
-  }
-}
-
-class Payment {
-  date: Date;
-}
-
-class UserwithPayment extends Payment {
-  name: string;
-}
+let user: UserBuildder | AdminBuilder = new AdminBuilder();
 
 
-class UserwithPayment2 {
-  user: User;
-  payment: Payment;
-
-  constructor(user: User, payment: Payment) {
-      this.payment = payment;
-      this.user = user
-  }
+if(user.isAdmin()) {
+  console.log(user);
+} else {
+  console.log(user);
 }

@@ -1,28 +1,18 @@
 "use strict";
-class User {
-    constructor(name) {
+Object.defineProperty(exports, "__esModule", { value: true });
+class UserBuildder {
+    setName(name) {
         this.name = name;
+        return this;
+    }
+    isAdmin() {
+        return this instanceof AdminBuilder;
     }
 }
-class Users extends Array {
-    searchByName(name) {
-        return this.filter((u) => u.name === name);
-    }
-    toString() {
-        return this.map((u) => u.name).join(", ");
-    }
+let u = new UserBuildder();
+class AdminBuilder extends UserBuildder {
 }
-const users = new Users();
-users.push(new User("Вася"));
-users.push(new User("Egor"));
-console.log(users.toString());
-class UserList {
-    push(u) {
-        this.users.push(u);
-    }
-}
-let test = new UserList();
-test.push(new User("Egor"));
-test.push(new User("Egor1"));
-test.push(new User("Egorka"));
-console.log(test);
+const res2 = new AdminBuilder();
+console.log(res2.setName("Egor"));
+let user = new AdminBuilder();
+console.log(user.isAdmin());
