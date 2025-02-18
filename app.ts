@@ -9,3 +9,4 @@ function kmToMIles<T extends Venichle>(venicle: T): T {
 
 console.log(kmToMIles({run: 55}));
 
+console.log('s')
