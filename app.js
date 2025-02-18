@@ -1,6 +1,9 @@
 "use strict";
-function Hello(message) {
-    return message;
+class Venichle {
 }
-// Hello there
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxTQUFTLEtBQUssQ0FBQyxPQUFlO0lBQzVCLE9BQU8sT0FBTyxDQUFDO0FBQ2pCLENBQUM7QUFHRCxjQUFjIn0=
+function kmToMIles(venicle) {
+    venicle.run = venicle.run / 0.62;
+    return venicle;
+}
+console.log(kmToMIles({ run: 55 }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxNQUFNLFFBQVE7Q0FFYjtBQUVELFNBQVMsU0FBUyxDQUFxQixPQUFVO0lBQy9DLE9BQU8sQ0FBQyxHQUFHLEdBQUcsT0FBTyxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUM7SUFDakMsT0FBTyxPQUFPLENBQUE7QUFDaEIsQ0FBQztBQUVELE9BQU8sQ0FBQyxHQUFHLENBQUMsU0FBUyxDQUFDLEVBQUMsR0FBRyxFQUFFLEVBQUUsRUFBQyxDQUFDLENBQUMsQ0FBQSJ9

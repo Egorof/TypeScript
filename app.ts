@@ -1,15 +1,11 @@
-function logMiddleWare<T>(data: T): T {
-  console.log(data);
-  return data;
+class Venichle {
+  run: number;
 }
 
+function kmToMIles<T extends Venichle>(venicle: T): T {
+  venicle.run = venicle.run / 0.62;
+  return venicle
+}
 
-const res = logMiddleWare<number>(10);
+console.log(kmToMIles({run: 55}));
 
-function splitHalf<T>(data: Array<T>): Array<T> {
-  const l = data.length / 2;
-  return data.splice(0, l);
-};
-
-
-splitHalf<number>([1, 2, 1, 1]);
