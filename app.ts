@@ -1,26 +1,15 @@
-class UserBuildder {
-  name: string;
-
-  setName(name: string): this {
-    this.name = name;
-    return this;
-  }
-
-  isAdmin(): this is AdminBuilder {
-    return this instanceof AdminBuilder;
-  }
+function logMiddleWare<T>(data: T): T {
+  console.log(data);
+  return data;
 }
 
-let u = new UserBuildder();
-class AdminBuilder extends UserBuildder {
-  
-}
 
-let user: UserBuildder | AdminBuilder = new AdminBuilder();
+const res = logMiddleWare<number>(10);
+
+function splitHalf<T>(data: Array<T>): Array<T> {
+  const l = data.length / 2;
+  return data.splice(0, l);
+};
 
 
-if(user.isAdmin()) {
-  console.log(user);
-} else {
-  console.log(user);
-}
+splitHalf<number>([1, 2, 1, 1]);

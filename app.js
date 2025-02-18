@@ -1,18 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class UserBuildder {
-    setName(name) {
-        this.name = name;
-        return this;
-    }
-    isAdmin() {
-        return this instanceof AdminBuilder;
-    }
+function Hello(message) {
+    return message;
 }
-let u = new UserBuildder();
-class AdminBuilder extends UserBuildder {
-}
-const res2 = new AdminBuilder();
-console.log(res2.setName("Egor"));
-let user = new AdminBuilder();
-console.log(user.isAdmin());
+// Hello there
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxTQUFTLEtBQUssQ0FBQyxPQUFlO0lBQzVCLE9BQU8sT0FBTyxDQUFDO0FBQ2pCLENBQUM7QUFHRCxjQUFjIn0=
