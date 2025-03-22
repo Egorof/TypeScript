@@ -1,8 +1,26 @@
 {
   "dependencies": {
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.5"
-  }
+  },
+  "name": "5-typescript-demo-1",
+  "version": "1.0.0",
+  "main": "LeetCode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Egorof/TypeScript.git"
+  },
+  "author": "Egor Nagornov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Egorof/TypeScript/issues"
+  },
+  "homepage": "https://github.com/Egorof/TypeScript#readme",
+  "description": ""
 }

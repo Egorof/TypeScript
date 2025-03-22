@@ -1,35 +1,39 @@
 "use strict";
-setUsers(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
 class UserService {
-    getUsersInDatabase() {
-        return this.users;
+    getUsersInDataBase() {
+        return this._users;
+    }
+    setUsersInDataBase(num) {
+        this._users = num;
     }
 }
-function nullUsers(target) {
-    target.prototype.users = 0;
-}
-function threeUsersAdvanced(constructor) {
-    return class extends constructor {
-        constructor() {
-            super(...arguments);
-            this.users = 3;
-        }
+__decorate([
+    __param(0, Positive()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], UserService.prototype, "setUsersInDataBase", null);
+function Positive() {
+    return (target, propertyKey, _) => {
+        console.log(Reflect.getOwnMetadata("design:type", target, propertyKey));
+        console.log(Reflect.getOwnMetadata("design:paramtypes", target, propertyKey));
+        console.log(Reflect.getOwnMetadata("design:returntype", target, propertyKey));
     };
 }
-function setUsers(users) {
-    return (target) => {
-        target.prototype.users = users;
-    };
-}
-function setUsersAdvanced(users) {
-    return (constructor) => {
-        return class extends constructor {
-            constructor() {
-                super(...arguments);
-                this.users = 3;
-            }
-        };
-    };
-}
-console.log(new UserService().getUsersInDatabase());
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFLQSxRQUFRLENBQUMsQ0FBQyxDQUFDLENBQUE7QUFDWCxNQUFNLFdBQVc7SUFFZixrQkFBa0I7UUFDaEIsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDO0lBQ3BCLENBQUM7Q0FDRjtBQUVELFNBQVMsU0FBUyxDQUFDLE1BQWdCO0lBQ2pDLE1BQU0sQ0FBQyxTQUFTLENBQUMsS0FBSyxHQUFHLENBQUMsQ0FBQztBQUM3QixDQUFDO0FBRUQsU0FBUyxrQkFBa0IsQ0FDekIsV0FBYztJQUVkLE9BQU8sS0FBTSxTQUFRLFdBQVc7UUFBekI7O1lBQ0wsVUFBSyxHQUFHLENBQUMsQ0FBQztRQUNaLENBQUM7S0FBQSxDQUFDO0FBQ0osQ0FBQztBQUVELFNBQVMsUUFBUSxDQUFDLEtBQWE7SUFDN0IsT0FBTyxDQUFDLE1BQWdCLEVBQUUsRUFBRTtRQUMxQixNQUFNLENBQUMsU0FBUyxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7SUFDakMsQ0FBQyxDQUFBO0FBQ0gsQ0FBQztBQUVELFNBQVMsZ0JBQWdCLENBQUMsS0FBYTtJQUNyQyxPQUFPLENBQ0wsV0FBYyxFQUNkLEVBQUU7UUFDRixPQUFPLEtBQU0sU0FBUSxXQUFXO1lBQXpCOztnQkFDTCxVQUFLLEdBQUcsQ0FBQyxDQUFDO1lBQ1osQ0FBQztTQUFBLENBQUM7SUFDSixDQUFDLENBQUE7QUFDSCxDQUFDO0FBRUQsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLFdBQVcsRUFBRSxDQUFDLGtCQUFrQixFQUFFLENBQUMsQ0FBQyJ9
+const UserService1 = new UserService();
+console.log(UserService1);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7O0FBQUEsNEJBQTBCO0FBTTFCLE1BQU0sV0FBVztJQUdmLGtCQUFrQjtRQUNoQixPQUFPLElBQUksQ0FBQyxNQUFNLENBQUM7SUFDckIsQ0FBQztJQUVELGtCQUFrQixDQUFhLEdBQVc7UUFDeEMsSUFBSSxDQUFDLE1BQU0sR0FBRyxHQUFHLENBQUM7SUFDcEIsQ0FBQztDQUNGO0FBSEM7SUFBb0IsV0FBQSxRQUFRLEVBQUUsQ0FBQTs7OztxREFFN0I7QUFHSCxTQUFTLFFBQVE7SUFDZixPQUFPLENBQ0wsTUFBYyxFQUNkLFdBQTRCLEVBQzVCLENBQVMsRUFDVCxFQUFFO1FBQ0YsT0FBTyxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsY0FBYyxDQUFDLGFBQWEsRUFBRSxNQUFNLEVBQUUsV0FBVyxDQUFDLENBQUMsQ0FBQztRQUN4RSxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxjQUFjLENBQUMsbUJBQW1CLEVBQUUsTUFBTSxFQUFFLFdBQVcsQ0FBQyxDQUFDLENBQUM7UUFDOUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsY0FBYyxDQUFDLG1CQUFtQixFQUFFLE1BQU0sRUFBRSxXQUFXLENBQUMsQ0FBQyxDQUFDO0lBQ2hGLENBQUMsQ0FBQztBQUNKLENBQUM7QUFFRCxNQUFNLFlBQVksR0FBRyxJQUFJLFdBQVcsRUFBRSxDQUFDO0FBQ3ZDLE9BQU8sQ0FBQyxHQUFHLENBQUMsWUFBWSxDQUFDLENBQUMifQ==

@@ -1,42 +1,32 @@
-interface IUserService {
-  users: number;
-  getUsersInDatabase(): number;
+import "reflect-metadata";
+
+interface IUSerService {
+  getUsersInDataBase(): number;
 }
 
-setUsers(2) 
-class UserService implements IUserService {
-  users: number;
-  getUsersInDatabase(): number {
-    return this.users;
+class UserService implements IUSerService {
+  private _users: number;
+
+  getUsersInDataBase(): number {
+    return this._users;
+  }
+
+  setUsersInDataBase(@Positive() num: number) {
+    this._users = num;
   }
 }
 
-function nullUsers(target: Function) {
-  target.prototype.users = 0;
-}
-
-function threeUsersAdvanced<T extends { new (...args: any[]): {} }>(
-  constructor: T
-) {
-  return class extends constructor {
-    users = 3;
+function Positive() {
+  return (
+    target: Object,
+    propertyKey: string | symbol,
+    _: number
+  ) => {
+    console.log(Reflect.getOwnMetadata("design:type", target, propertyKey));
+    console.log(Reflect.getOwnMetadata("design:paramtypes", target, propertyKey));
+    console.log(Reflect.getOwnMetadata("design:returntype", target, propertyKey));
   };
 }
 
-function setUsers(users: number) {
-  return (target: Function) => {
-    target.prototype.users = users;
-  }
-}
-
-function setUsersAdvanced(users: number) {
-  return <T extends { new (...args: any[]): {} }>(
-    constructor: T
-  ) => {
-    return class extends constructor {
-      users = 3;
-    };
-  }
-}
-
-console.log(new UserService().getUsersInDatabase());
+const UserService1 = new UserService();
+console.log(UserService1);
