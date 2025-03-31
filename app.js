@@ -1,2 +1,28 @@
 "use strict";
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIifQ==
+class KVDatabase {
+    constructor() {
+        this.db = new Map();
+    }
+    save(key, value) {
+        this.db.set(key, value);
+    }
+}
+class PersistentDB {
+    savePersistent(data) {
+        console.log(data);
+    }
+}
+class PersistentDBAdapter extends KVDatabase {
+    constructor(database) {
+        super();
+        this.database = database;
+    }
+    save(key, value) {
+        this.database.savePersistent({ key, value });
+    }
+}
+function run(base) {
+    base.save("key", "myValue");
+}
+run(new PersistentDBAdapter(new PersistentDB));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxNQUFNLFVBQVU7SUFBaEI7UUFDVSxPQUFFLEdBQXdCLElBQUksR0FBRyxFQUFFLENBQUM7SUFLOUMsQ0FBQztJQUhDLElBQUksQ0FBQyxHQUFXLEVBQUUsS0FBYTtRQUM3QixJQUFJLENBQUMsRUFBRSxDQUFDLEdBQUcsQ0FBQyxHQUFHLEVBQUUsS0FBSyxDQUFDLENBQUM7SUFDMUIsQ0FBQztDQUNGO0FBRUQsTUFBTSxZQUFZO0lBQ2hCLGNBQWMsQ0FBQyxJQUFZO1FBQ3pCLE9BQU8sQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDcEIsQ0FBQztDQUNGO0FBRUQsTUFBTSxtQkFBb0IsU0FBUSxVQUFVO0lBQzFDLFlBQW1CLFFBQXNCO1FBQ3ZDLEtBQUssRUFBRSxDQUFDO1FBRFMsYUFBUSxHQUFSLFFBQVEsQ0FBYztJQUV6QyxDQUFDO0lBRVEsSUFBSSxDQUFDLEdBQVcsRUFBRSxLQUFhO1FBQ3RDLElBQUksQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLEVBQUUsR0FBRyxFQUFFLEtBQUssRUFBRSxDQUFDLENBQUM7SUFDL0MsQ0FBQztDQUNGO0FBRUQsU0FBUyxHQUFHLENBQUMsSUFBZ0I7SUFDM0IsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLEVBQUUsU0FBUyxDQUFDLENBQUM7QUFDOUIsQ0FBQztBQUVELEdBQUcsQ0FBQyxJQUFJLG1CQUFtQixDQUFDLElBQUksWUFBWSxDQUFDLENBQUMsQ0FBQSJ9
