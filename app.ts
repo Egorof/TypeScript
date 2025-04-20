@@ -1,29 +1,32 @@
-class KVDatabase {
-  private db: Map<string, string> = new Map();
+abstract class DeliveryItem {
+  items: DeliveryItem[];
 
-  save(key: string, value: string) {
-    this.db.set(key, value);
+  constructor() {}
+
+  addItem(item: DeliveryItem) {
+    this.items.push(item);
   }
+  getItemsPrices(): number {
+    return this.items.reduce(
+      (acc: number, item: DeliveryItem) => (acc += item.getPrice()),
+      0
+    );
+  }
+  abstract getPrice(): number;
 }
 
-class PersistentDB {
-  savePersistent(data: Object) {
-    console.log(data);
-  }
-}
-
-class PersistentDBAdapter extends KVDatabase {
-  constructor(public database: PersistentDB) {
+export class DeliveryShop extends DeliveryItem {
+  constructor(private deliveryFee: number) {
     super();
   }
 
-  override save(key: string, value: string) {
-    this.database.savePersistent({ key, value });
+  override getPrice(): number {
+    return this.getItemsPrices() + this.deliveryFee;
   }
 }
 
-function run(base: KVDatabase) {
-  base.save("key", "myValue");
+export class Package extends DeliveryItem {
+  override getPrice(): number {
+    return this.getItemsPrices();
+  }
 }
-
-run(new PersistentDBAdapter(new PersistentDB))
